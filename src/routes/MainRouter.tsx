@@ -9,6 +9,8 @@ import { Row } from "@/components/Utils";
 import { MyPageScreen } from "@/screens/MyPageScreen";
 import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
+import { NotificationScreen } from "@/screens/NotificationScreen";
+import { SearchScreen } from "@/screens/SearchScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,52 +20,46 @@ const Stack = createNativeStackNavigator();
 export const MainRouter = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Main"
-        component={MainTab}
-      />
-      <Stack.Screen
-        name="Notification"
-        component={MyPageScreen}
-      />
-      <Stack.Screen
-        name="Search"
-        component={MyPageScreen}
-      />
+      <Stack.Screen name="Main" component={MainTab} />
+      <Stack.Screen name="Notification" component={NotificationScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
     </Stack.Navigator>
   );
 };
 
 const Tab = createBottomTabNavigator();
 
-type FIXME = any
+type FIXME = any;
 
 const MainTab = () => {
+  const navigation = useNavigation<FIXME>();
+  const handlePressNotification = React.useCallback(() => {
+    navigation.navigate("Notification");
+  }, [navigation]);
+  const handlePressSearch = React.useCallback(() => {
+    navigation.navigate("Search");
+  }, [navigation]);
 
-  const navigation = useNavigation<FIXME>()
-  const handlePressNotification = React.useCallback(()=>{navigation.navigate('Notification')},[navigation])
-  const handlePressSearch = React.useCallback(()=>{navigation.navigate('Search')},[navigation])
-
-  React.useEffect(()=>{
+  React.useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return (
           <Row style={styles.rightOptions}>
             <Pressable onPress={handlePressSearch}>
-            <MaterialIcon name="search" size={24} color={Colors.black} />
+              <MaterialIcon name="search" size={24} color={Colors.black} />
             </Pressable>
             <Pressable onPress={handlePressNotification}>
-            <MaterialCommunityIcon
-              name="bell-outline"
-              size={24}
-              color={Colors.black}
-            />
+              <MaterialCommunityIcon
+                name="bell-outline"
+                size={24}
+                color={Colors.black}
+              />
             </Pressable>
           </Row>
         );
       },
-    })
-  },[navigation, handlePressNotification])
+    });
+  }, [navigation, handlePressNotification]);
 
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>

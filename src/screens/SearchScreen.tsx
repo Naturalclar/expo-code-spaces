@@ -1,19 +1,20 @@
 import * as React from "react";
 import { Text, StyleSheet } from "react-native";
 import { Flex } from "@/components/Utils";
-import { List } from "@/components/Lists/List";
 
 /**
- * Screen used for Home Tab of the Main Screen
+ * Screen used for Search
  */
-export const HomeScreen = () => {
+export const SearchScreen = () => {
   return (
     <Flex style={styles.container}>
-      <List />
+      <Text>TODO: Search Screen</Text>
     </Flex>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    padding: 24,
+  },
 });

@@ -1,9 +1,10 @@
 import * as React from "react";
 import { AuthRouter } from "./AuthRouter";
 import { MainRouter } from "./MainRouter";
+import { useAuth } from "@/contexts/AuthContext";
 
 export const RootRouter = () => {
-  const isLoggedIn = true;
+  const { user } = useAuth();
 
-  return isLoggedIn ? <MainRouter /> : <AuthRouter />;
+  return user ? <MainRouter /> : <AuthRouter />;
 };

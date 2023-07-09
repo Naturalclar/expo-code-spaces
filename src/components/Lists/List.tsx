@@ -4,9 +4,8 @@ import { ListItem } from "./ListItem";
 import { noop } from "@/utils/noop";
 import { Colors } from "@/theme/Colors";
 
-
 type Data = {
-  id: string
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -44,7 +43,7 @@ export const List = ({ data = sampleDatas }: Props) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: Colors.white
-    }
-})
+  container: {
+    backgroundColor: Colors.white,
+  },
+});
