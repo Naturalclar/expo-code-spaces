@@ -1,10 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcon from "@expo/vector-icons/MaterialIcons";
-import Ionicon from "@expo/vector-icons/Ionicons";
 import { Colors } from "@/theme/Colors";
 import { Row } from "@/components/Utils";
 import { HomeScreen } from "@/screens/HomeScreen";
@@ -21,23 +20,20 @@ export const MainRouter = () => {
       <Stack.Screen
         name="Main"
         component={MainTab}
-        options={
-          {
-            headerLeft: () => {
-              return (
-                  <Ionicon name="menu" size={24} color={Colors.black} />
-                )
-            },
-            headerRight: () => {
-              return (
+        options={{
+          headerRight: () => {
+            return (
               <Row style={styles.rightOptions}>
                 <MaterialIcon name="search" size={24} color={Colors.black} />
-                <MaterialCommunityIcon name="bell-outline" size={24} color={Colors.black} />
+                <MaterialCommunityIcon
+                  name="bell-outline"
+                  size={24}
+                  color={Colors.black}
+                />
               </Row>
-              )
-            }
-          }
-        }
+            );
+          },
+        }}
       />
     </Stack.Navigator>
   );
@@ -46,21 +42,16 @@ export const MainRouter = () => {
 const Tab = createBottomTabNavigator();
 
 const MainTab = () => {
-
-  
-
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="MyPage" component={MyPageScreen} />
     </Tab.Navigator>
   );
 };
 
-
 const styles = StyleSheet.create({
   rightOptions: {
-    gap: 20
-  }
-}
-)
+    gap: 20,
+  },
+});
