@@ -3,7 +3,7 @@ import { AuthRouter } from "./AuthRouter";
 import { MainRouter } from "./MainRouter";
 
 export const RootRouter = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return isLoggedIn ? <MainRouter /> : <AuthRouter />;
 };
