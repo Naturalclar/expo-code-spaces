@@ -1,6 +1,7 @@
 export const Colors = {
-  primary: "blue",
+  primary: "#ff7755",
   negative: "red",
   black: "#000",
   white: "#fff",
+  link: "blue",
 };

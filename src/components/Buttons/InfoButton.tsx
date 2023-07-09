@@ -16,9 +16,9 @@ export const InfoButton = ({ onPress }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 32,
-    height: 32,
-    width: 32,
+    borderRadius: 24,
+    height: 24,
+    width: 24,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: StyleSheet.hairlineWidth,
