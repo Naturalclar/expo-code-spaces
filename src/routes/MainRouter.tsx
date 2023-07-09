@@ -6,8 +6,8 @@ import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcon from "@expo/vector-icons/MaterialIcons";
 import { Colors } from "@/theme/Colors";
 import { Row } from "@/components/Utils";
-import { HomeScreen } from "@/screens/HomeScreen";
 import { MyPageScreen } from "@/screens/MyPageScreen";
+import { HomeTab } from "./HomeTab";
 
 const Stack = createNativeStackNavigator();
 
@@ -44,7 +44,9 @@ const Tab = createBottomTabNavigator();
 const MainTab = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeTab} />
+      <Tab.Screen name="Data" component={MyPageScreen} />
+      <Tab.Screen name="Record" component={MyPageScreen} />
       <Tab.Screen name="MyPage" component={MyPageScreen} />
     </Tab.Navigator>
   );
