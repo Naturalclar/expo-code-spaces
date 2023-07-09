@@ -18,6 +18,6 @@ export const LinkText = ({ onPress, children }: Props) => {
 const styles = StyleSheet.create({
   text: {
     color: Colors.link,
-    fontWeight: '600'
+    fontWeight: "600",
   },
 });

@@ -1,14 +1,9 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Text, View } from "react-native";
-import { WelcomeScreen } from "../screens/WelcomeScreen";
-
-const Stack = createNativeStackNavigator();
+import { AuthRouter } from "./AuthRouter";
+import { MainRouter } from "./MainRouter";
 
 export const RootRouter = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
-    </Stack.Navigator>
-  );
+  const isLoggedIn = false;
+
+  return isLoggedIn ? <AuthRouter /> : <MainRouter />;
 };
