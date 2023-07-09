@@ -4,13 +4,27 @@ import {
   PrimaryButton,
   PrimaryButtonOutline,
   InfoButton,
-} from "../components/Buttons";
-import { noop } from "../utils/noop";
-import { Flex, Row } from "../components/Utils";
+} from "@/components/Buttons";
+import { noop } from "@/utils/noop";
+import { Flex, Row } from "@/components/Utils";
 import { LinkText } from "@/components/Typography/LinkText";
 import { TopLogo } from "@/components/Logos";
+import { useNavigation } from "@react-navigation/native";
+
+// TODO: use navigation param type
+type FIXME = any;
 
 export const WelcomeScreen = () => {
+  const navigation = useNavigation<FIXME>();
+
+  const handlePressSignUp = React.useCallback(() => {
+    navigation.navigate("SignUp");
+  }, [navigation]);
+
+  const handlePressLogin = React.useCallback(() => {
+    navigation.navigate("Login");
+  }, [navigation]);
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -23,8 +37,8 @@ export const WelcomeScreen = () => {
             {` and `}
             <LinkText onPress={noop}>Privacy Policy</LinkText>.
           </Text>
-          <PrimaryButton label="Sign Up" onPress={noop} />
-          <PrimaryButtonOutline label="Log In" onPress={noop} />
+          <PrimaryButton label="Sign Up" onPress={handlePressSignUp} />
+          <PrimaryButtonOutline label="Log In" onPress={handlePressLogin} />
           <Row justifyContent="flex-end">
             <InfoButton onPress={noop} />
           </Row>

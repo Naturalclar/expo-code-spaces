@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
+import { SignUpScreen } from "@/screens/SignUpScreen";
+import { LoginScreen } from "../screens/LoginScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +12,13 @@ const Stack = createNativeStackNavigator();
 export const AuthRouter = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen
+        name="Welcome"
+        component={WelcomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   );
 };
