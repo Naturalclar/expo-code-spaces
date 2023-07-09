@@ -1,7 +1,7 @@
 import { Colors } from "@/theme/Colors";
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicon from "@expo/vector-icons/Ionicons";
 
 type Props = {
   onPress: () => void;
@@ -9,7 +9,7 @@ type Props = {
 export const InfoButton = ({ onPress }: Props) => {
   return (
     <View style={styles.container}>
-      <Ionicons name="md-information" size={16} color={Colors.primary} />
+      <Ionicon name="md-information" size={16} color={Colors.primary} />
     </View>
   );
 };
