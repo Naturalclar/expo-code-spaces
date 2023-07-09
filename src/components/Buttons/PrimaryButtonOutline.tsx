@@ -17,12 +17,14 @@ export const PrimaryButtonOutline = ({ onPress, label }: Props) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    padding: 16,
+    padding: 24,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.primary,
-    borderRadius: 10,
+    borderRadius: 50,
   },
   text: {
+    fontSize: 20,
+    textAlign: "center",
     color: Colors.primary,
     fontWeight: "600",
   },

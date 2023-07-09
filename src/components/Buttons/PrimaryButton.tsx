@@ -17,11 +17,13 @@ export const PrimaryButton = ({ onPress, label }: Props) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    padding: 16,
+    padding: 24,
     backgroundColor: Colors.primary,
-    borderRadius: 10,
+    borderRadius: 50,
   },
   text: {
+    fontSize: 20,
+    textAlign: "center",
     color: Colors.white,
     fontWeight: "600",
   },

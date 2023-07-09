@@ -1,9 +1,12 @@
 import * as React from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import { PrimaryButton } from "../components/Buttons/PrimaryButton";
+import {
+  PrimaryButton,
+  PrimaryButtonOutline,
+  InfoButton,
+} from "../components/Buttons";
 import { noop } from "../utils/noop";
-import { PrimaryButtonOutline } from "../components/Buttons/PrimaryButtonOutline";
-import { Flex } from "../components/Utils/Flex";
+import { Flex, Row } from "../components/Utils";
 
 export const WelcomeScreen = () => {
   return (
@@ -14,6 +17,9 @@ export const WelcomeScreen = () => {
         </Flex>
         <PrimaryButton label="Sign Up" onPress={noop} />
         <PrimaryButtonOutline label="Log In" onPress={noop} />
+        <Row justifyContent="flex-end">
+          <InfoButton onPress={noop} />
+        </Row>
       </View>
     </SafeAreaView>
   );
