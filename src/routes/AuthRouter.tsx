@@ -11,7 +11,11 @@ const Stack = createNativeStackNavigator();
  */
 export const AuthRouter = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerBackTitleVisible: false,
+      }}
+    >
       <Stack.Screen
         name="Welcome"
         component={WelcomeScreen}

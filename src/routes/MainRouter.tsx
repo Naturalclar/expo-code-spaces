@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Colors } from "@/theme/Colors";
 import { Row } from "@/components/Utils";
@@ -9,7 +9,14 @@ import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
 import { NotificationScreen } from "@/screens/NotificationScreen";
 import { SearchScreen } from "@/screens/SearchScreen";
-import { ChartIcon, HomeIcon, NotificationIcon, RecordIcon, SearchIcon, UserIcon } from "@/components/Icons";
+import {
+  ChartIcon,
+  HomeIcon,
+  NotificationIcon,
+  RecordIcon,
+  SearchIcon,
+  UserIcon,
+} from "@/components/Icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,10 +25,27 @@ const Stack = createNativeStackNavigator();
  */
 export const MainRouter = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerBackTitleVisible: false,
+        presentation: "modal",
+      }}
+    >
       <Stack.Screen name="Main" component={MainTab} />
-      <Stack.Screen name="Notification" component={NotificationScreen} />
-      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={({ navigation }) => ({
+          headerRight: () => <Text onPress={navigation.goBack}>Cancel</Text>,
+        })}
+      />
+      <Stack.Screen
+        name="Search"
+        component={SearchScreen}
+        options={({ navigation }) => ({
+          headerRight: () => <Text onPress={navigation.goBack}>Cancel</Text>,
+        })}
+      />
     </Stack.Navigator>
   );
 };
@@ -57,26 +81,48 @@ const MainTab = () => {
   }, [navigation, handlePressNotification]);
 
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false, tabBarActiveTintColor: Colors.primary }}>
-      <Tab.Screen name="Home" component={HomeTab}
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: Colors.primary,
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeTab}
         options={{
-          tabBarIcon: ({ color, size }) => (<HomeIcon color={color} size={size} />)
+          tabBarIcon: ({ color, size }) => (
+            <HomeIcon color={color} size={size} />
+          ),
         }}
       />
-      <Tab.Screen name="Data" component={MyPageScreen}
+      <Tab.Screen
+        name="Data"
+        component={MyPageScreen}
         options={{
-          tabBarIcon: ({ color, size }) => (<ChartIcon color={color} size={size} />)
+          tabBarIcon: ({ color, size }) => (
+            <ChartIcon color={color} size={size} />
+          ),
         }}
       />
-      <Tab.Screen name="Record" component={MyPageScreen}
+      <Tab.Screen
+        name="Record"
+        component={MyPageScreen}
         options={{
-          tabBarIcon: ({ color, size }) => (<RecordIcon color={color} size={size} />)
+          tabBarIcon: ({ color, size }) => (
+            <RecordIcon color={color} size={size} />
+          ),
         }}
       />
-      <Tab.Screen name="MyPage" component={MyPageScreen}
+      <Tab.Screen
+        name="MyPage"
+        component={MyPageScreen}
         options={{
-          tabBarIcon: ({ color, size }) => (<UserIcon color={color} size={size} />)
-        }} />
+          tabBarIcon: ({ color, size }) => (
+            <UserIcon color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
