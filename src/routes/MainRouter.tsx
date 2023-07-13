@@ -9,7 +9,7 @@ import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
 import { NotificationScreen } from "@/screens/NotificationScreen";
 import { SearchScreen } from "@/screens/SearchScreen";
-import { NotificationIcon, SearchIcon } from "@/components/Icons";
+import { ChartIcon, HomeIcon, NotificationIcon, RecordIcon, SearchIcon, UserIcon } from "@/components/Icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -57,11 +57,26 @@ const MainTab = () => {
   }, [navigation, handlePressNotification]);
 
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component={HomeTab} />
-      <Tab.Screen name="Data" component={MyPageScreen} />
-      <Tab.Screen name="Record" component={MyPageScreen} />
-      <Tab.Screen name="MyPage" component={MyPageScreen} />
+    <Tab.Navigator screenOptions={{ headerShown: false, tabBarActiveTintColor: Colors.primary }}>
+      <Tab.Screen name="Home" component={HomeTab}
+        options={{
+          tabBarIcon: ({ color, size }) => (<HomeIcon color={color} size={size} />)
+        }}
+      />
+      <Tab.Screen name="Data" component={MyPageScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (<ChartIcon color={color} size={size} />)
+        }}
+      />
+      <Tab.Screen name="Record" component={MyPageScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (<RecordIcon color={color} size={size} />)
+        }}
+      />
+      <Tab.Screen name="MyPage" component={MyPageScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (<UserIcon color={color} size={size} />)
+        }} />
     </Tab.Navigator>
   );
 };
