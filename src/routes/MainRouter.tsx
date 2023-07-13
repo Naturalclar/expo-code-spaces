@@ -2,8 +2,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { Pressable, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
-import MaterialIcon from "@expo/vector-icons/MaterialIcons";
 import { Colors } from "@/theme/Colors";
 import { Row } from "@/components/Utils";
 import { MyPageScreen } from "@/screens/MyPageScreen";
@@ -11,6 +9,7 @@ import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
 import { NotificationScreen } from "@/screens/NotificationScreen";
 import { SearchScreen } from "@/screens/SearchScreen";
+import { NotificationIcon, SearchIcon } from "@/components/Icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,14 +45,10 @@ const MainTab = () => {
         return (
           <Row style={styles.rightOptions}>
             <Pressable onPress={handlePressSearch}>
-              <MaterialIcon name="search" size={24} color={Colors.black} />
+              <SearchIcon size={24} color={Colors.black} />
             </Pressable>
             <Pressable onPress={handlePressNotification}>
-              <MaterialCommunityIcon
-                name="bell-outline"
-                size={24}
-                color={Colors.black}
-              />
+              <NotificationIcon size={24} color={Colors.black} />
             </Pressable>
           </Row>
         );
