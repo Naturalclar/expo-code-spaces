@@ -1,16 +1,17 @@
 import { Colors } from "@/theme/Colors";
 import * as React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { InfoIcon } from "../Icons";
+import { PressableOpacity } from "../Utils";
 
 type Props = {
   onPress: () => void;
 };
 export const InfoButton = ({ onPress }: Props) => {
   return (
-    <View style={styles.container}>
+    <PressableOpacity onPress={onPress} style={styles.container}>
       <InfoIcon size={16} color={Colors.primary} />
-    </View>
+    </PressableOpacity>
   );
 };
 

@@ -8,7 +8,7 @@ type Props = {
   onPress: (id: string) => void;
 };
 
-export const ArticleListItem = ({ article, onPress }: Props) => {
+export const ArticleTopListItem = ({ article, onPress }: Props) => {
   const handlePress = React.useCallback(() => {
     onPress(article.id);
   }, [article.id, onPress]);

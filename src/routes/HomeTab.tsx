@@ -9,6 +9,8 @@ export const HomeTab = () => {
     <Tab.Navigator>
       <Tab.Screen name="Service 1" component={HomeScreen} />
       <Tab.Screen name="Service 2" component={HomeScreen} />
+      <Tab.Screen name="Service 3" component={HomeScreen} />
+      <Tab.Screen name="Service 4" component={HomeScreen} />
     </Tab.Navigator>
   );
 };

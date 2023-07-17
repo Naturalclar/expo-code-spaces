@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Pressable, View, Text, StyleSheet } from "react-native";
 import { Colors } from "../../theme/Colors";
+import { PressableOpacity } from "../Utils";
 
 type Props = {
   onPress: () => void;
@@ -8,9 +9,9 @@ type Props = {
 };
 export const PrimaryButtonOutline = ({ onPress, label }: Props) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <PressableOpacity onPress={onPress} style={styles.container}>
       <Text style={styles.text}>{label}</Text>
-    </Pressable>
+    </PressableOpacity>
   );
 };
 

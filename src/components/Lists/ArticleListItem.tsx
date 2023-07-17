@@ -1,23 +1,25 @@
 import * as React from "react";
 import { Text, Image, Pressable, StyleSheet } from "react-native";
 import { Row, Flex, PressableOpacity } from "@/components/Utils";
+import { Article } from "@/types";
 
 type Props = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  onPress: () => void;
+  article: Article;
+  onPress: (id: string) => void;
 };
 
-export const ListItem = ({ title, description, imageUrl, onPress }: Props) => {
+export const ArticleListItem = ({ article, onPress }: Props) => {
+  const handlePress = React.useCallback(() => {
+    onPress(article.id);
+  }, [article.id, onPress]);
+
   return (
-    <PressableOpacity onPress={onPress}>
+    <PressableOpacity onPress={handlePress}>
       <Row style={styles.container}>
-        <Image source={{ uri: imageUrl }} style={styles.image} />
+        <Image source={{ uri: article.imageUrl }} style={styles.image} />
         <Flex>
-          <Text>{title}</Text>
-          <Text>{description}</Text>
+          <Text>{article.title}</Text>
+          <Text>{article.description}</Text>
         </Flex>
       </Row>
     </PressableOpacity>
