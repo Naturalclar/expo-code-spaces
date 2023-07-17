@@ -2,16 +2,17 @@ import * as React from "react";
 import { Text, StyleSheet } from "react-native";
 import { Flex } from "@/components/Utils";
 import { PrimaryButton } from "@/components/Buttons";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/useAuth";
+
 
 /**
  * Screen used for signing up
  */
 export const SignUpScreen = () => {
-  const { setUser } = useAuth();
+  const { login } = useAuth()
   const onPressSignUp = React.useCallback(() => {
-    setUser({ name: "test user" });
-  }, [setUser]);
+    login("testEmail", "testPassword")
+  }, [login]);
 
   return (
     <Flex style={styles.container}>

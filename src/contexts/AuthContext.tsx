@@ -8,14 +8,14 @@ type AuthContext = {
 
 export const AuthContext = React.createContext<AuthContext>({
   user: null,
-  setUser: () => {},
+  setUser: () => { },
 });
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const useAuth = () => {
+export const useAuthContext = () => {
   const { user, setUser } = React.useContext(AuthContext);
   return { user, setUser };
 };
