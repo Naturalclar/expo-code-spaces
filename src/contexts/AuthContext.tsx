@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { User } from "@/types";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type AuthContext = {
   user: User | null;
@@ -22,6 +23,14 @@ export const useAuthContext = () => {
 
 export const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = React.useState<User | null>(null);
+
+  React.useEffect(() => {
+    AsyncStorage.getItem("user").then((user) => {
+      if (user) {
+        setUser(JSON.parse(user) as User);
+      }
+    });
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
