@@ -1,16 +1,23 @@
 import * as React from "react";
-import { Pressable, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Colors } from "../../theme/Colors";
 import { PressableOpacity } from "../Utils";
 
 type Props = {
   onPress: () => void;
   label: string;
+  backgroundColor?: string;
 };
-export const PrimaryButtonOutline = ({ onPress, label }: Props) => {
+export const PrimaryButtonOutline = ({
+  onPress,
+  backgroundColor,
+  label,
+}: Props) => {
   return (
-    <PressableOpacity onPress={onPress} style={styles.container}>
-      <Text style={styles.text}>{label}</Text>
+    <PressableOpacity onPress={onPress}>
+      <View style={[styles.container, { backgroundColor }]}>
+        <Text style={styles.text}>{label}</Text>
+      </View>
     </PressableOpacity>
   );
 };

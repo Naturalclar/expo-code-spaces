@@ -88,43 +88,47 @@ const MainTab = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         component={HomeTab}
         options={{
           tabBarIcon: ({ color, size }) => (
             <HomeIcon color={color} size={size} />
           ),
           headerRight,
+          title: "Home",
         }}
       />
       <Tab.Screen
-        name="Data"
+        name="DataTab"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <ChartIcon color={color} size={size} />
           ),
           headerRight,
+          title: "Data",
         }}
       />
       <Tab.Screen
-        name="Record"
+        name="RecordTab"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <RecordIcon color={color} size={size} />
           ),
           headerRight,
+          title: "Record",
         }}
       />
       <Tab.Screen
-        name="MyPage"
+        name="MyPageTab"
         component={MyPageRouter}
         options={{
           tabBarIcon: ({ color, size }) => (
             <UserIcon color={color} size={size} />
           ),
           headerShown: false,
+          title: "MyPage",
         }}
       />
     </Tab.Navigator>

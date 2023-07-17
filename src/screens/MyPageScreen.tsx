@@ -14,7 +14,7 @@ type FIXME = any;
  * Screen used for MyPage Tab of the Main Screen
  */
 export const MyPageScreen = () => {
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
   const { logout } = useAuth();
   const navigation = useNavigation<FIXME>();
 

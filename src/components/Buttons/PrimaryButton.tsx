@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Pressable, View, Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { Colors } from "../../theme/Colors";
 import { PressableOpacity } from "../Utils";
 

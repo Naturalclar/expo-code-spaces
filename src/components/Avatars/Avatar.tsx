@@ -10,11 +10,14 @@ type Props = {
 export const Avatar = ({ size = 32 }: Props) => {
   return (
     <Row
-      style={[styles.container, { width: size, height: size, borderRadius: size / 2 }]}
+      style={[
+        styles.container,
+        { width: size, height: size, borderRadius: size / 2 },
+      ]}
       justifyContent="center"
       alignItems="center"
     >
-      <UserIcon size={size * 2 / 3} color={Colors.text.light} />
+      <UserIcon size={(size * 2) / 3} color={Colors.text.light} />
     </Row>
   );
 };
