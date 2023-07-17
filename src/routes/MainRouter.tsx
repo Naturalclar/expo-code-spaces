@@ -31,7 +31,6 @@ export const MainRouter = () => {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
-        presentation: "modal",
         headerTintColor: Colors.black,
       }}
     >
@@ -40,11 +39,17 @@ export const MainRouter = () => {
         options={{ headerShown: false }}
         component={MainTab}
       />
+      <Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
+      <Stack.Screen name="NotificationDetail" component={ArticleDetailScreen} />
+      {/**
+       * Modal Screens
+       */}
       <Stack.Screen
         name="Notification"
         component={NotificationScreen}
         options={({ navigation }) => ({
           headerRight: () => <Text onPress={navigation.goBack}>Cancel</Text>,
+          presentation: "modal",
         })}
       />
       <Stack.Screen
@@ -52,14 +57,8 @@ export const MainRouter = () => {
         component={SearchScreen}
         options={({ navigation }) => ({
           headerRight: () => <Text onPress={navigation.goBack}>Cancel</Text>,
+          presentation: "modal",
         })}
-      />
-      <Stack.Screen
-        name="ArticleDetail"
-        component={ArticleDetailScreen}
-        options={{
-          presentation: "card",
-        }}
       />
     </Stack.Navigator>
   );

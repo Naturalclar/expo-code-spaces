@@ -13,8 +13,9 @@ type Data = {
 
 type Props = {
   data?: Data[];
+  onSelect: (id: string) => void;
 };
-export const List = ({ data = [] }: Props) => {
+export const List = ({ data = [], onSelect }: Props) => {
   return (
     <FlatList
       data={data}
@@ -25,7 +26,7 @@ export const List = ({ data = [] }: Props) => {
           title={item.title}
           description={item.description}
           imageUrl={item.imageUrl}
-          onPress={noop}
+          onPress={onSelect}
         />
       )}
     />

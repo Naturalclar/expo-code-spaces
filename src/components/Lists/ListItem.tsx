@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, Image, Pressable, StyleSheet } from "react-native";
+import { Text, Image, StyleSheet } from "react-native";
 import { Row, Flex, PressableOpacity } from "@/components/Utils";
 
 type Props = {
@@ -7,12 +7,21 @@ type Props = {
   title: string;
   description: string;
   imageUrl: string;
-  onPress: () => void;
+  onPress: (id: string) => void;
 };
 
-export const ListItem = ({ title, description, imageUrl, onPress }: Props) => {
+export const ListItem = ({
+  id,
+  title,
+  description,
+  imageUrl,
+  onPress,
+}: Props) => {
+  const handleSelect = React.useCallback(() => {
+    onPress(id);
+  }, [id, onPress]);
   return (
-    <PressableOpacity onPress={onPress}>
+    <PressableOpacity onPress={handleSelect}>
       <Row style={styles.container}>
         <Image source={{ uri: imageUrl }} style={styles.image} />
         <Flex>
