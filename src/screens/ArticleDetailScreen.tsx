@@ -1,16 +1,29 @@
 import * as React from "react";
 import { Text, StyleSheet } from "react-native";
 import { Flex } from "@/components/Utils";
+import { useQuery } from "@tanstack/react-query";
+import * as api from "@/apis";
+import { useRoute } from "@react-navigation/native";
+import { LoadingScreen } from "@/components/Templates/LoadingScreen";
+import { ArticleDetail } from "@/components/Articles/ArticleDetail";
+
+type FIXME = any;
 
 /**
  * Screen used for Article Detail
  */
 export const ArticleDetailScreen = () => {
-  return (
-    <Flex style={styles.container}>
-      <Text>TODO: Article Detail Screen</Text>
-    </Flex>
-  );
+  const { params } = useRoute<FIXME>();
+  const { isLoading, data } = useQuery({
+    queryKey: ["article", params.id],
+    queryFn: () => api.fetchArticleById(params.id),
+  });
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  return <ArticleDetail article={data.data} />;
 };
 
 const styles = StyleSheet.create({
