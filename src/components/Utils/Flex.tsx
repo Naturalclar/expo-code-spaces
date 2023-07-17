@@ -2,11 +2,22 @@ import * as React from "react";
 import { View, StyleSheet, ViewProps } from "react-native";
 
 type Props = {
-  justify?: "justifyCenter" | "justifyStart" | "justifyEnd" | "justifyBetween" | "justifyAround" | "justifyEvenly";
+  justify?:
+    | "justifyCenter"
+    | "justifyStart"
+    | "justifyEnd"
+    | "justifyBetween"
+    | "justifyAround"
+    | "justifyEvenly";
   items?: "itemsCenter" | "itemsStart" | "itemsEnd";
 } & ViewProps;
 export const Flex = ({ style, justify, items, ...rest }: Props) => {
-  return <View style={[styles.default, styles[justify], styles[items], style]} {...rest} />;
+  return (
+    <View
+      style={[styles.default, styles[justify], styles[items], style]}
+      {...rest}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

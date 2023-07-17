@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 // Mock methods for fetching articles
 export const fetchArticles = async () => {
   const imageUrl =
@@ -7,10 +9,11 @@ export const fetchArticles = async () => {
     id: `${index}`,
     title: `Sample Title ${index}`,
     description: `Sample description ${index}.`,
+    createdAt: dayjs().toISOString(),
     imageUrl,
   }));
 
   return {
     data: sampleDatas,
-  }
-}
+  };
+};

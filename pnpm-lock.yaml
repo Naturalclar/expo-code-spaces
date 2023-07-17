@@ -26,6 +26,9 @@ dependencies:
   '@types/react':
     specifier: ~18.0.27
     version: 18.0.38
+  dayjs:
+    specifier: ^1.11.9
+    version: 1.11.9
   expo:
     specifier: ~48.0.18
     version: 48.0.18(@babel/core@7.20.2)

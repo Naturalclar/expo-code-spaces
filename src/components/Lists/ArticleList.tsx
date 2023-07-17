@@ -1,33 +1,22 @@
 import * as React from "react";
 import { FlatList, StyleSheet } from "react-native";
-import { ListItem } from "./ListItem";
 import { noop } from "@/utils/noop";
 import { Colors } from "@/theme/Colors";
-
-type Data = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-};
+import { Article } from "@/types";
+import { ArticleListItem } from "./ArticlesListItem";
 
 type Props = {
-  data?: Data[];
+  data: Article[];
 };
-export const List = ({ data = [] }: Props) => {
+export const ArticleList = ({ data }: Props) => {
   return (
     <FlatList
       data={data}
       style={styles.container}
       renderItem={({ item }) => (
-        <ListItem
-          id={item.id}
-          title={item.title}
-          description={item.description}
-          imageUrl={item.imageUrl}
-          onPress={noop}
-        />
+        <ArticleListItem article={item} onPress={noop} />
       )}
+      keyExtractor={(item) => item.id}
     />
   );
 };
