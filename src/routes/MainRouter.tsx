@@ -1,10 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Colors } from "@/theme/Colors";
-import { Row } from "@/components/Utils";
-import { MyPageScreen } from "@/screens/MyPageScreen";
+import { PressableOpacity, Row } from "@/components/Utils";
 import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
 import { NotificationScreen } from "@/screens/NotificationScreen";
@@ -72,12 +71,12 @@ const MainTab = () => {
   const headerRight = React.useCallback(() => {
     return (
       <Row style={styles.rightOptions}>
-        <Pressable onPress={handlePressSearch}>
+        <PressableOpacity onPress={handlePressSearch}>
           <SearchIcon size={24} color={Colors.black} />
-        </Pressable>
-        <Pressable onPress={handlePressNotification}>
+        </PressableOpacity>
+        <PressableOpacity onPress={handlePressNotification}>
           <NotificationIcon size={24} color={Colors.black} />
-        </Pressable>
+        </PressableOpacity>
       </Row>
     );
   }, [handlePressNotification, handlePressSearch]);

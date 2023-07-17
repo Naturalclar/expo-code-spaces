@@ -1,6 +1,6 @@
 import * as React from "react";
-import { View, Pressable, StyleSheet, ImageBackground } from "react-native";
-import { Row } from "@/components/Utils";
+import { View, StyleSheet, ImageBackground } from "react-native";
+import { PressableOpacity, Row } from "@/components/Utils";
 import { Article } from "@/types";
 import { Typography } from "../Typography";
 import { Colors } from "@/theme/Colors";
@@ -16,10 +16,7 @@ export const ArticleTopListItem = ({ article, onPress }: Props) => {
   }, [article.id, onPress]);
 
   return (
-    <Pressable
-      style={(state) => [{ opacity: state.pressed ? 0.4 : 1 }]}
-      onPress={handlePress}
-    >
+    <PressableOpacity onPress={handlePress}>
       <Row style={styles.container}>
         <ImageBackground
           source={{ uri: article.imageUrl }}
@@ -32,7 +29,7 @@ export const ArticleTopListItem = ({ article, onPress }: Props) => {
           <Typography color={Colors.white}>{article.description}</Typography>
         </View>
       </Row>
-    </Pressable>
+    </PressableOpacity>
   );
 };
 
