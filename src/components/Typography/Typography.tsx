@@ -11,9 +11,15 @@ export const Typography = ({
   weight,
   size = 16,
   color = Colors.black,
+  style,
   ...rest
 }: Props) => {
-  return <Text style={[styles[weight], { color, fontSize: size }]} {...rest} />;
+  return (
+    <Text
+      style={[styles[weight], { color, fontSize: size }, style]}
+      {...rest}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

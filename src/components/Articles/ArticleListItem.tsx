@@ -18,7 +18,7 @@ export const ArticleListItem = ({ article, onPress }: Props) => {
     <PressableOpacity onPress={handlePress}>
       <Row style={styles.container}>
         <Image source={{ uri: article.imageUrl }} style={styles.image} />
-        <Flex justify="justifyCenter">
+        <Flex justifyContent="center">
           <Typography weight="bold">{article.title}</Typography>
           <Typography>{article.description}</Typography>
         </Flex>

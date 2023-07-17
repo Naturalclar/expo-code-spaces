@@ -8,7 +8,7 @@ import { Colors } from "@/theme/Colors";
  */
 export const LoadingScreen = () => {
   return (
-    <Flex justify="justifyCenter" items="itemsCenter">
+    <Flex justifyContent="center" alignItems="center">
       <ActivityIndicator size="large" color={Colors.primary} />
     </Flex>
   );

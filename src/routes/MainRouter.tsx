@@ -18,6 +18,7 @@ import {
   UserIcon,
 } from "@/components/Icons";
 import { HomeScreen } from "@/screens/HomeScreen";
+import { MyPageRouter } from "./MyPageRouter";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +33,11 @@ export const MainRouter = () => {
         presentation: "modal",
       }}
     >
-      <Stack.Screen name="Main" component={MainTab} />
+      <Stack.Screen
+        name="Main"
+        options={{ headerShown: false }}
+        component={MainTab}
+      />
       <Stack.Screen
         name="Notification"
         component={NotificationScreen}
@@ -64,27 +69,22 @@ const MainTab = () => {
     navigation.navigate("Search");
   }, [navigation]);
 
-  React.useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => {
-        return (
-          <Row style={styles.rightOptions}>
-            <Pressable onPress={handlePressSearch}>
-              <SearchIcon size={24} color={Colors.black} />
-            </Pressable>
-            <Pressable onPress={handlePressNotification}>
-              <NotificationIcon size={24} color={Colors.black} />
-            </Pressable>
-          </Row>
-        );
-      },
-    });
-  }, [navigation, handlePressNotification]);
+  const headerRight = React.useCallback(() => {
+    return (
+      <Row style={styles.rightOptions}>
+        <Pressable onPress={handlePressSearch}>
+          <SearchIcon size={24} color={Colors.black} />
+        </Pressable>
+        <Pressable onPress={handlePressNotification}>
+          <NotificationIcon size={24} color={Colors.black} />
+        </Pressable>
+      </Row>
+    );
+  }, [handlePressNotification, handlePressSearch]);
 
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false,
         tabBarActiveTintColor: Colors.primary,
       }}
     >
@@ -95,6 +95,7 @@ const MainTab = () => {
           tabBarIcon: ({ color, size }) => (
             <HomeIcon color={color} size={size} />
           ),
+          headerRight,
         }}
       />
       <Tab.Screen
@@ -104,6 +105,7 @@ const MainTab = () => {
           tabBarIcon: ({ color, size }) => (
             <ChartIcon color={color} size={size} />
           ),
+          headerRight,
         }}
       />
       <Tab.Screen
@@ -113,15 +115,17 @@ const MainTab = () => {
           tabBarIcon: ({ color, size }) => (
             <RecordIcon color={color} size={size} />
           ),
+          headerRight,
         }}
       />
       <Tab.Screen
         name="MyPage"
-        component={MyPageScreen}
+        component={MyPageRouter}
         options={{
           tabBarIcon: ({ color, size }) => (
             <UserIcon color={color} size={size} />
           ),
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
@@ -131,5 +135,6 @@ const MainTab = () => {
 const styles = StyleSheet.create({
   rightOptions: {
     gap: 20,
+    marginRight: 20,
   },
 });
