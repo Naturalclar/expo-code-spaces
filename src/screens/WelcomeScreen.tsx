@@ -25,6 +25,14 @@ export const WelcomeScreen = () => {
     navigation.navigate("Login");
   }, [navigation]);
 
+  const handlePressTerms = React.useCallback(() => {
+    navigation.navigate("Terms");
+  }, [navigation]);
+
+  const handlePressPolicy = React.useCallback(() => {
+    navigation.navigate("Policy");
+  }, [navigation]);
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -33,9 +41,9 @@ export const WelcomeScreen = () => {
         </Flex>
         <Flex style={styles.buttonsContainer}>
           <Text style={styles.agreeText}>
-            Agree to our <LinkText onPress={noop}>Terms</LinkText>
+            Agree to our <LinkText onPress={handlePressTerms}>Terms</LinkText>
             {` and `}
-            <LinkText onPress={noop}>Privacy Policy</LinkText>.
+            <LinkText onPress={handlePressPolicy}>Privacy Policy</LinkText>.
           </Text>
           <PrimaryButton label="Sign Up" onPress={handlePressSignUp} />
           <PrimaryButtonOutline label="Log In" onPress={handlePressLogin} />

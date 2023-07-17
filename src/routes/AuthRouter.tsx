@@ -3,6 +3,8 @@ import * as React from "react";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
 import { SignUpScreen } from "@/screens/SignUpScreen";
 import { LoginScreen } from "../screens/LoginScreen";
+import { TermsScreen } from "@/screens/TermsScreen";
+import { PolicyScreen } from "@/screens/PolicyScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,8 @@ export const AuthRouter = () => {
       />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Terms" component={TermsScreen} />
+      <Stack.Screen name="Policy" component={PolicyScreen} />
     </Stack.Navigator>
   );
 };
