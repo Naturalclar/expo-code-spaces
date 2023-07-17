@@ -21,7 +21,6 @@ export const HomeRouter = () => {
       }}
     >
       <Stack.Screen name="Home" component={HomeTopTab} />
-      <Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
     </Stack.Navigator>
   );
 };

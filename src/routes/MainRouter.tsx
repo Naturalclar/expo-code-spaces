@@ -15,11 +15,11 @@ import {
   SearchIcon,
   UserIcon,
 } from "@/components/Icons";
-import { HomeScreen } from "@/screens/HomeScreen";
 import { MyPageRouter } from "./MyPageRouter";
 import { HomeRouter } from "./HomeRouter";
 import { DataRouter } from "./DataRouter";
 import { RecordRouter } from "./RecordRouter";
+import { ArticleDetailScreen } from "@/screens/ArticleDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +32,7 @@ export const MainRouter = () => {
       screenOptions={{
         headerBackTitleVisible: false,
         presentation: "modal",
+        headerTintColor: Colors.black,
       }}
     >
       <Stack.Screen
@@ -52,6 +53,13 @@ export const MainRouter = () => {
         options={({ navigation }) => ({
           headerRight: () => <Text onPress={navigation.goBack}>Cancel</Text>,
         })}
+      />
+      <Stack.Screen
+        name="ArticleDetail"
+        component={ArticleDetailScreen}
+        options={{
+          presentation: "card",
+        }}
       />
     </Stack.Navigator>
   );
