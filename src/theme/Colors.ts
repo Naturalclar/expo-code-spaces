@@ -4,4 +4,5 @@ export const Colors = {
   black: "#000",
   white: "#fff",
   link: "blue",
+  border: "#cdcdcd",
 };
