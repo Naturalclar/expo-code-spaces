@@ -3,6 +3,7 @@ import * as React from "react";
 import { Colors } from "@/theme/Colors";
 import { HomeTopTab } from "./HomeTopTab";
 import { useHeaderRight } from "./MainRouter";
+import { ArticleDetailScreen } from "@/screens/ArticleDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export const HomeRouter = () => {
       }}
     >
       <Stack.Screen name="Home" component={HomeTopTab} />
+      <Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
     </Stack.Navigator>
   );
 };

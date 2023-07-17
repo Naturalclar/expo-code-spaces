@@ -8,17 +8,18 @@ import { ArticleTopListItem } from "./ArticleTopListItem";
 
 type Props = {
   data: Article[];
+  onSelect: (id: string) => void;
 };
-export const ArticleList = ({ data }: Props) => {
+export const ArticleList = ({ data, onSelect }: Props) => {
   const topArticle = data[0];
 
   const renderHeader = React.useCallback(() => {
     if (!topArticle) return null;
-    return <ArticleTopListItem article={topArticle} onPress={noop} />;
+    return <ArticleTopListItem article={topArticle} onPress={onSelect} />;
   }, [topArticle]);
 
   const renderItem = React.useCallback(
-    ({ item }) => <ArticleListItem article={item} onPress={noop} />,
+    ({ item }) => <ArticleListItem article={item} onPress={onSelect} />,
     [],
   );
 
