@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { Flex } from "@/components/Utils";
 import { List } from "@/components/Lists/List";
 

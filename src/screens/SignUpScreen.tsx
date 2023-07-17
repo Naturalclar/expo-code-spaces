@@ -4,14 +4,13 @@ import { Flex } from "@/components/Utils";
 import { PrimaryButton } from "@/components/Buttons";
 import { useAuth } from "@/hooks/useAuth";
 
-
 /**
  * Screen used for signing up
  */
 export const SignUpScreen = () => {
-  const { login } = useAuth()
+  const { login } = useAuth();
   const onPressSignUp = React.useCallback(() => {
-    login("testEmail", "testPassword")
+    login("testEmail", "testPassword");
   }, [login]);
 
   return (

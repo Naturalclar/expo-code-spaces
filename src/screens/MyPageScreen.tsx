@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
  * Screen used for MyPage Tab of the Main Screen
  */
 export const MyPageScreen = () => {
-  const { logout } = useAuth()
+  const { logout } = useAuth();
 
   return (
     <Flex style={styles.container}>

@@ -8,7 +8,7 @@ type AuthContext = {
 
 export const AuthContext = React.createContext<AuthContext>({
   user: null,
-  setUser: () => { },
+  setUser: () => {},
 });
 
 type Props = {
