@@ -17,6 +17,7 @@ import {
   SearchIcon,
   UserIcon,
 } from "@/components/Icons";
+import { HomeScreen } from "@/screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -98,7 +99,7 @@ const MainTab = () => {
       />
       <Tab.Screen
         name="Data"
-        component={MyPageScreen}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <ChartIcon color={color} size={size} />
@@ -107,7 +108,7 @@ const MainTab = () => {
       />
       <Tab.Screen
         name="Record"
-        component={MyPageScreen}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <RecordIcon color={color} size={size} />

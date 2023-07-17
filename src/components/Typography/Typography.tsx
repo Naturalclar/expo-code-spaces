@@ -1,9 +1,19 @@
+import { Colors } from "@/theme/Colors";
 import * as React from "react";
 import { Text, StyleSheet } from "react-native";
 
-type Props = { weight?: "bold" | "regular" | "light" } & Text["props"];
-export const Typography = ({ weight, ...rest }: Props) => {
-  return <Text style={[styles[weight]]} {...rest} />;
+type Props = {
+  size?: number;
+  color?: string;
+  weight?: "bold" | "regular" | "light";
+} & Text["props"];
+export const Typography = ({
+  weight,
+  size = 16,
+  color = Colors.black,
+  ...rest
+}: Props) => {
+  return <Text style={[styles[weight], { color, fontSize: size }]} {...rest} />;
 };
 
 const styles = StyleSheet.create({

@@ -4,7 +4,7 @@ import { List } from "@/components/Lists/List";
 import { useQuery } from "@tanstack/react-query";
 import * as api from "@/apis";
 import { LoadingScreen } from "@/components/Templates/LoadingScreen";
-import { ArticleList } from "@/components/Lists/ArticleList";
+import { ArticleList } from "@/components/Articles/ArticleList";
 
 /**
  * Screen used for Home Tab of the Main Screen
