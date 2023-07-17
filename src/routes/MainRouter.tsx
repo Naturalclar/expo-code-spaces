@@ -4,7 +4,6 @@ import { StyleSheet, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Colors } from "@/theme/Colors";
 import { PressableOpacity, Row } from "@/components/Utils";
-import { HomeTab } from "./HomeTab";
 import { useNavigation } from "@react-navigation/native";
 import { NotificationScreen } from "@/screens/NotificationScreen";
 import { SearchScreen } from "@/screens/SearchScreen";
@@ -18,6 +17,9 @@ import {
 } from "@/components/Icons";
 import { HomeScreen } from "@/screens/HomeScreen";
 import { MyPageRouter } from "./MyPageRouter";
+import { HomeRouter } from "./HomeRouter";
+import { DataRouter } from "./DataRouter";
+import { RecordRouter } from "./RecordRouter";
 
 const Stack = createNativeStackNavigator();
 
@@ -59,8 +61,9 @@ const Tab = createBottomTabNavigator();
 
 type FIXME = any;
 
-const MainTab = () => {
+export const useHeaderRight = () => {
   const navigation = useNavigation<FIXME>();
+
   const handlePressNotification = React.useCallback(() => {
     navigation.navigate("Notification");
   }, [navigation]);
@@ -81,6 +84,11 @@ const MainTab = () => {
     );
   }, [handlePressNotification, handlePressSearch]);
 
+  return headerRight;
+};
+
+const MainTab = () => {
+  const headerRight = useHeaderRight();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -89,34 +97,35 @@ const MainTab = () => {
     >
       <Tab.Screen
         name="HomeTab"
-        component={HomeTab}
+        component={HomeRouter}
         options={{
           tabBarIcon: ({ color, size }) => (
             <HomeIcon color={color} size={size} />
           ),
-          headerRight,
+
           title: "Home",
+          headerShown: false,
         }}
       />
       <Tab.Screen
         name="DataTab"
-        component={HomeScreen}
+        component={DataRouter}
         options={{
           tabBarIcon: ({ color, size }) => (
             <ChartIcon color={color} size={size} />
           ),
-          headerRight,
+          headerShown: false,
           title: "Data",
         }}
       />
       <Tab.Screen
         name="RecordTab"
-        component={HomeScreen}
+        component={RecordRouter}
         options={{
           tabBarIcon: ({ color, size }) => (
             <RecordIcon color={color} size={size} />
           ),
-          headerRight,
+          headerShown: false,
           title: "Record",
         }}
       />
@@ -138,6 +147,5 @@ const MainTab = () => {
 const styles = StyleSheet.create({
   rightOptions: {
     gap: 20,
-    marginRight: 20,
   },
 });

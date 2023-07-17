@@ -4,7 +4,10 @@ import { HomeScreen } from "@/screens/HomeScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
-export const HomeTab = () => {
+/**
+ * TopTab Navigator for Home Tab
+ */
+export const HomeTopTab = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Service 1" component={HomeScreen} />
