@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Pressable,
   Keyboard,
+  Platform,
 } from "react-native";
 
 type Props = KeyboardAvoidingView["props"];
@@ -19,7 +20,11 @@ export const KeyboardScreen = ({ children, ...rest }: Props) => {
       keyboardVerticalOffset={100}
       {...rest}
     >
-      <Pressable style={styles.container} onPress={Keyboard.dismiss}>
+      <Pressable
+        disabled={Platform.OS === "web"}
+        style={styles.container}
+        onPress={Keyboard.dismiss}
+      >
         {children}
       </Pressable>
     </KeyboardAvoidingView>

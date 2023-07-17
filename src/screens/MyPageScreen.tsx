@@ -6,12 +6,15 @@ import { SettingsListItem } from "@/components/Settings/SettingsListItem";
 import { noop } from "@/utils/noop";
 import { Colors } from "@/theme/Colors";
 import { useNavigation } from "@react-navigation/native";
+import { useAuthContext } from "@/contexts/AuthContext";
+import { ProfileInfo } from "@/components/Profiles/ProfileInfo";
 
 type FIXME = any;
 /**
  * Screen used for MyPage Tab of the Main Screen
  */
 export const MyPageScreen = () => {
+  const { user } = useAuthContext()
   const { logout } = useAuth();
   const navigation = useNavigation<FIXME>();
 
@@ -25,9 +28,7 @@ export const MyPageScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.body}>
-        <Text>TODO: MyPage Screen</Text>
-      </View>
+      <ProfileInfo user={user} />
       <View style={styles.settings}>
         <SettingsListItem
           label="Terms and Condition"
@@ -41,7 +42,6 @@ export const MyPageScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  body: { padding: 24 },
   settings: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: Colors.border,

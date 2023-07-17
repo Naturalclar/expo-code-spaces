@@ -8,5 +8,5 @@ type Props = {
 };
 
 export const UserIcon = ({ size = 32, color = Colors.black }: Props) => {
-  return <Ionicon name="person-sharp" size={size} color={color} />;
+  return <Ionicon name="person-sharp" size={size} color={color} style={{ textAlign: 'center' }} />;
 };
