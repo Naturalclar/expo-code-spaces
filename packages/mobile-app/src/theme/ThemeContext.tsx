@@ -13,7 +13,7 @@ export const useColors = () => {
 
   if (!theme.isSet) {
     throw new Error(
-      "Theme is not provided. Please wrap your app with <ThemeProvider>"
+      "Theme is not provided. Please wrap your app with <ThemeProvider>",
     );
   }
 
@@ -27,7 +27,7 @@ type Props = {
 export const ThemeProvider = ({ theme, children }: Props) => {
   const appTheme: ThemeContext = React.useMemo(
     () => ({ ...theme, isSet: true }),
-    [theme]
+    [theme],
   );
   return (
     <ThemeContext.Provider value={appTheme}>{children}</ThemeContext.Provider>
