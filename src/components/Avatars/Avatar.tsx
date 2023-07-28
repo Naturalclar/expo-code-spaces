@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import { Row } from "../Utils";
+import { Row } from "@/components/Utils";
 import { UserIcon } from "@/components/Icons";
 import { Colors } from "@/theme/Colors";
 

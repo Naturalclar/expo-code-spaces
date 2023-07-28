@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Text, StyleSheet } from "react-native";
-import { Flex } from "@/components/Utils";
+import { StyleSheet } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import * as api from "@/apis";
 import { useRoute } from "@react-navigation/native";

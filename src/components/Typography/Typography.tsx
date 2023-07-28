@@ -16,7 +16,7 @@ export const Typography = ({
 }: Props) => {
   return (
     <Text
-      style={[styles[weight], { color, fontSize: size }, style]}
+      style={[styles[weight ?? "regular"], { color, fontSize: size }, style]}
       {...rest}
     />
   );
