@@ -1,4 +1,4 @@
-p# expo-code-spaces
+# expo-code-spaces
 
 Playground for Expo using Code Spaces
 
