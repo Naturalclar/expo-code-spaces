@@ -1,5 +1,5 @@
 // packages/mobile/metro.config.js
-const { getDefaultConfig } = require("@expo/metro-config");
+const { getDefaultConfig } = require("expo/metro-config");
 
 const defaultConfig = getDefaultConfig(__dirname);
 
@@ -20,8 +20,8 @@ const requestResolver = (context, moduleName, platform, realName) => {
 };
 
 module.exports = {
-  ...defaultConfig,
   ...makeMetroConfig({
+    ...defaultConfig,
     projectRoot: __dirname,
     resolver: {
       resolveRequest: requestResolver,
